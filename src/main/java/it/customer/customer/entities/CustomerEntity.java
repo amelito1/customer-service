@@ -9,7 +9,8 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Entity(name = "customer")
+@Entity
+@Table(name = "customer")
 @Setter
 @Getter
 public class CustomerEntity {

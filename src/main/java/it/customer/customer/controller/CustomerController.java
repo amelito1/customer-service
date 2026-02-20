@@ -6,6 +6,7 @@ import it.customer.customer.dto.response.CustomerResponse;
 import it.customer.customer.service.CustomerService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,13 @@ public class CustomerController {
     public ResponseEntity<List<CustomerResponse>> retrieves() {
         final List<CustomerResponse> customers = this.service.findAllCustomers();
         return ResponseEntity.ok(customers);
+    }
+
+    @GetMapping(path = "/retrieve-customers-pages", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Page<CustomerResponse>> retrieveOrdersPages(@RequestParam int page,
+                                                                   @RequestParam int size) {
+        final Page<CustomerResponse> customerPages = this.service.retrievesCustomerPages(page, size);
+
+        return ResponseEntity.ok(customerPages);
     }
 }

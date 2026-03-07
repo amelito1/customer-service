@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>4.0.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>it.customer</groupId>
 	<artifactId>customer</artifactId>
@@ -30,6 +30,13 @@
 		<java.version>21</java.version>
         <spring-cloud.version>2025.1.0</spring-cloud.version>
 	</properties>
+
+    <repositories>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://192.168.1.212:8081/repository/commonlib-amel/</url>
+        </repository>
+    </repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -97,7 +104,7 @@
         <dependency>
             <groupId>it.euris</groupId>
             <artifactId>common-lib</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
         </dependency>
 
         <dependency>
